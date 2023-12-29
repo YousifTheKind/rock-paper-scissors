@@ -7,7 +7,26 @@
 </head>
 <body>
     <script>
-        console.log("odin here!")
+        // create a function called getComputerChoice
+        // create an array that holds the three choices
+        // create a variable that would hold the randomly generated computer choice
+        // write the line of code that will pick a random value from the array you created 
+
+        function getComputerChoice() {
+            choices = ["Rock", "Paper", "Scissors"];
+
+            computerChoice = Math.floor(Math.random() * choices.length);
+            return choices[computerChoice];
+        }
+
+        // write a function called playRound that takes two parameters playerSelection and computerSelection
+        // the function should take what the player input was and compare it to the computer's choice and declare a winner
+        // convert the playerSelection .toUpperCase()
+        // writ write switch statement that takes playerSelection as expression
+        // ... and case one "ROCK" case two "PAPER" case three "SCISSORS"
+        // write if statement inside each case to compare it with computerSelection and output the winner
+
+        console.log(getComputerChoice())
     </script>
 </body>
 </html>
