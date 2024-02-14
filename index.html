@@ -6,7 +6,22 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+
+    <button>Rock</button>
+    <button>Paper</button>
+    <button>Scissors</button>
+
+    <div id="displayResults"></div>
+    
     <script>
+        const buttons = document.querySelectorAll('button');
+
+
+        buttons.forEach(buttons => 
+        buttons.addEventListener('click', (e) => {
+            game(e.target.innerText);
+        }));
+
         // create a function called getComputerChoice
         // create an array that holds the three choices
         // create a variable that would hold the randomly generated computer choice
@@ -94,35 +109,35 @@
         // outside the loop if userScore == 3 console log you won
         // if compScore == 3 console log you lost
 
-        function game() {
-            let playerScore = 0;
-            let compScore = 0;
+        let playerScore = 0;
+        let compScore = 0;
 
-            for(let i = 0; i < 5; i++) {
-                let playerInput = prompt("Type Rock,Paper or Scissors");
-                let winner = playRound(playerInput, getComputerChoice());
-                winner.toString();
-                console.log(winner);
-                if(winner.startsWith("You Win!")) {
+        function game(buttonClicked) {
+
+            buttonClicked.toString();
+
+            let winner = playRound(buttonClicked, getComputerChoice());
+
+            console.log(winner);
+
+            if(winner.startsWith("You Win!")) {
                     ++playerScore;
                 }
-                else if(winner.startsWith("You Lose!")) {
+            else if(winner.startsWith("You Lose!")) {
                     ++compScore;
                 }
-                else {
-                    i--;
-                }
-                
-                if(playerScore == 3) {
-                console.log("Congrats! You Won The Game\nScore:\n You: " + playerScore + " Computer: " + compScore);
-            }
 
-            else if(compScore == 3) {
+            if(playerScore == 3) {
+                console.log("Congrats! You Won The Game\nScore:\n You: " + playerScore + " Computer: " + compScore)
+                playerScore = 0;
+                compScore = 0;
+            };
+            
+            if(compScore == 3) {
                 console.log("Hard Luck! You lost the game\nScore:\n You: " + playerScore + " Computer: " + compScore);
+                playerScore = 0;
+                compScore = 0;
             }
-
-            }
-
         }
     </script>
 </body>
