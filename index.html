@@ -115,14 +115,15 @@
         let compScore = 0;
 
         const score = document.querySelector("#runningScore");
+        
+        const roundResult = document.querySelector("#roundResult");
+            
+        const gameResults = document.querySelector("#gameResults");
 
         score.textContent = "Your Score: 0 " + "Computer Score: 0";
 
 
         function game(buttonClicked) {
-            const roundResult = document.querySelector("#roundResult");
-            
-            const gameResults = document.querySelector("#gameResults");
 
             buttonClicked.toString();
 
