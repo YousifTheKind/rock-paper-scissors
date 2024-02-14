@@ -11,8 +11,10 @@
     <button>Paper</button>
     <button>Scissors</button>
 
-    <div id="displayResults"></div>
-    
+    <div id="runningScore"></div>
+    <div id="roundResult"></div>
+    <div id="gameResults"></div>
+
     <script>
         const buttons = document.querySelectorAll('button');
 
@@ -112,13 +114,22 @@
         let playerScore = 0;
         let compScore = 0;
 
+        const score = document.querySelector("#runningScore");
+
+        score.textContent = "Your Score: 0 " + "Computer Score: 0";
+
+
         function game(buttonClicked) {
+            const roundResult = document.querySelector("#roundResult");
+            
+            const gameResults = document.querySelector("#gameResults");
 
             buttonClicked.toString();
 
             let winner = playRound(buttonClicked, getComputerChoice());
 
-            console.log(winner);
+            roundResult.textContent = winner;
+
 
             if(winner.startsWith("You Win!")) {
                     ++playerScore;
@@ -127,17 +138,20 @@
                     ++compScore;
                 }
 
-            if(playerScore == 3) {
-                console.log("Congrats! You Won The Game\nScore:\n You: " + playerScore + " Computer: " + compScore)
+            if(playerScore == 5) {
+                gameResults.textContent = "Congrats! You Won The Game"
                 playerScore = 0;
                 compScore = 0;
             };
             
-            if(compScore == 3) {
-                console.log("Hard Luck! You lost the game\nScore:\n You: " + playerScore + " Computer: " + compScore);
+            if(compScore == 5) {
+                gameResults.textContent = "Hard Luck! You lost the Game"
                 playerScore = 0;
                 compScore = 0;
             }
+            
+            score.textContent = "Your Score: " + playerScore + " " + "Computer Score: " + compScore;
+
         }
     </script>
 </body>
